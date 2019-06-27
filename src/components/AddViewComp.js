@@ -22,7 +22,7 @@ class AddViewComp extends Component {
           <div className={"col-md-6 offset-md-1 form"}>
             <h4><b>View users</b></h4>
             <table>
-              <thead>
+              <thead > 
                 <tr>
                   <th>Name</th>
                   <th>Username</th>
