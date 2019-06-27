@@ -1,0 +1,9 @@
+.register{
+    background-color: #e9e9ec;
+    display: flex;
+    justify-content: center;
+}
+.reg-block{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

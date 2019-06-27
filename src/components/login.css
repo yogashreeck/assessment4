@@ -1,0 +1,9 @@
+.login{
+    background-color: #e9e9ec;
+    display: flex;
+    justify-content: center;
+}
+.log-block{
+    margin-top: 75px;
+    margin-bottom: 50px;
+}

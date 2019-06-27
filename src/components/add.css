@@ -1,0 +1,18 @@
+.form{
+    margin-top: 40px;
+}
+.nameblock{
+    margin-top: 25px;
+}
+.bttn{
+   background-color:  #2f1cd0;
+   border-color: #2f1cd0;
+   display: inline-block;
+    font-weight: 400;
+    border-radius: 0.25rem;
+    color: aliceblue;
+}
+
+.table ,thead ,th,td {
+   border-bottom: 1px solid grey;
+}
