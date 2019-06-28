@@ -1,50 +1,73 @@
-import React, { Component } from 'react';
+import React, { useState, Fragment } from 'react'
+import AddUser from './userview/AddUser'
+import EditUser from './userview/EditUser'
+import Table from './userview/Table'
 import './add.css';
 
-class AddViewComp extends Component {
-  render() {
-    return (
-      <div className="container">
-        <h1><b>React Application</b></h1>
-        <div class="row">
-          <div className={"col-md-5 form-group add"}>
-            <form className="form">
-              <h4><b>Add User</b></h4>
-              <div className="nameblock">
-                <label For="Name"><b>Name</b></label>
-                <input type="text" className="form-control" /><br />
-                <label For="Username"><b>Username</b></label>
-                <input type="text" className="form-control" /><br />
-                <button className="bttn">Add new user</button>
+const AddViewComp = () => {
+  // Data
+  const usersData = []
+
+  const initialFormState = { id: null, name: '', username: '' }
+
+  // Setting state
+  const [users, setUsers] = useState(usersData)
+  const [currentUser, setCurrentUser] = useState(initialFormState)
+  const [editing, setEditing] = useState(false)
+
+  // CRUD operations
+  const addUser = user => {
+    user.id = users.length + 1
+    setUsers([...users, user])
+  }
+
+  const deleteUser = id => {
+    setEditing(false)
+
+    setUsers(users.filter(user => user.id !== id))
+  }
+
+  const updateUser = (id, updatedUser) => {
+    setEditing(false)
+
+    setUsers(users.map(user => (user.id === id ? updatedUser : user)))
+  }
+
+  const editRow = user => {
+    setEditing(true)
+
+    setCurrentUser({ id: user.id, name: user.name, username: user.username })
+  }
+
+  return (
+    <div className="container">
+      <h1>React Application</h1>
+      <div className="row">
+        <div className={"col-md-5 "}>
+        <div >
+          {editing ? (
+            <div>
+              <h2>Edit user</h2>
+              <EditUser editing={editing} setEditing={setEditing} currentUser={currentUser}
+                updateUser={updateUser} />
+            </div>
+          ) : (
+              <div>
+                <h4>Add user</h4>
+                <AddUser addUser={addUser} />
               </div>
-            </form>
-          </div>
-          <div className={"col-md-6 offset-md-1 form"}>
-            <h4><b>View users</b></h4>
-            <table>
-              <thead > 
-                <tr>
-                  <th>Name</th>
-                  <th>Username</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              
-              <tbody>
-                <tr>
-                  <td>No users</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-             
-              </tbody>
-            </table>
-          </div>
+            )}
+        </div>
+        </div>
+        <div className={"col-md-5 offset-md-1 "}>
+        <div>
+          <h4>View users</h4>
+          <Table users={users} editRow={editRow} deleteUser={deleteUser} />
+        </div>
         </div>
       </div>
-
-    )
-  }
+    </div>
+  )
 }
 
 export default AddViewComp;

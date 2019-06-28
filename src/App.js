@@ -6,6 +6,7 @@ import LoginComp from './components/LoginComp';
 import RegisterComp from './components/RegisterComp';
 import AddViewComp from './components/AddViewComp'
 
+
 function App() {
   return (
     <div>
@@ -14,6 +15,8 @@ function App() {
           <Route exact path='/login' component={LoginComp}></Route>
           <Route exact path='/register' component={RegisterComp}></Route>
           <Route exact path='/home' component={AddViewComp}></Route>
+          <Route exact path='/home' component={AddViewComp}></Route>
+          
         </Switch>
       </Router>
     </div>

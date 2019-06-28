@@ -1,5 +1,5 @@
 .form{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 .nameblock{
     margin-top: 25px;
@@ -12,11 +12,20 @@
     border-radius: 0.25rem;
     color: aliceblue;
 }
-
+.container , h1{
+ margin-top: 30px;
+padding-bottom: 25px;
+}
 .table ,thead ,th,td {
-   border-bottom: 1px solid #ced4da;
-}
-th{
-    column-count: 2;
-    padding-top: 25px;
-}
+    border-bottom: 1px solid #ced4da;
+ }
+ th{
+     column-count: 2;
+     padding-top: 25px;
+ }
+ .butt{
+    margin: 10px;
+ }
+ .edbtn{
+     margin: 1px;
+ }
