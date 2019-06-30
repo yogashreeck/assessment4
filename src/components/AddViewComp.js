@@ -37,11 +37,19 @@ const AddViewComp = () => {
     setEditing(true)
 
     setCurrentUser({ id: user.id, name: user.name, username: user.username })
-  }
+  };
+
 
   return (
     <div className="container">
+      <div className="row">
+      <div className="col-md-6">
       <h1>React Application</h1>
+      </div>
+      <div className="col-md-2 offset-md-4">
+        <h3><a href='./login'>Logout</a></h3>
+      </div>
+      </div>
       <div className="row">
         <div className={"col-md-5 "}>
         <div >

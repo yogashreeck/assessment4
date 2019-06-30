@@ -26,10 +26,6 @@ handleSubmit(e) {
     const { dispatch } = this.props;
     
 }
-  
-  handleClick = () => {
-    this.props.history.push('/register')
-  }
 
 
   render() {
@@ -58,9 +54,8 @@ handleSubmit(e) {
               }
             </div>
             <div className="form-group">
-              <button className="btn btn-primary" onClick={this.loginClick}>Login</button>
-              <a href="#" className="btn btn-link text-decoration-none"
-                onClick={this.handleClick}>Register</a>
+              <button type="submit" className="btn btn-primary" onClick={this.loginClick}>Login</button>
+              <a href="./register" className="btn btn-link text-decoration-none">Register</a>
             </div>
           </form>
         </div>
