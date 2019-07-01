@@ -12,24 +12,26 @@ class LoginComp extends Component {
     
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
+  
   handleChange(e) {
     const { name, value } = e.target;
     this.setState({ [name]: value });
 }
-
 handleSubmit(e) {
     e.preventDefault();
-
-    this.setState({ submitted: true });
     const { username, password } = this.state;
-    const { dispatch } = this.props;
-    
+     this.setState({ submitted: true });
+     if (username && password) {
+      this.props.history.push('/home')
+  }else{
+    console.log('login successful');
+  }
 }
 
 
   render() {
-    const { loggingIn } = this.props;
     const { username, password, submitted } = this.state;
     return (
       <div className="login">
@@ -38,7 +40,7 @@ handleSubmit(e) {
           <form className="form"  onSubmit={this.handleSubmit} >
             <div className={'form-group' + (submitted && !username ? ' has-error' : '') }>
               <label htmlFor="username"><b>Username</b></label>
-              <input type="text" class="form-control" name="username"  value={username} 
+              <input type="text" className="form-control" name="username"  value={username} 
 
               onChange={this.handleChange} />
               {submitted && !username &&
@@ -54,7 +56,7 @@ handleSubmit(e) {
               }
             </div>
             <div className="form-group">
-              <button type="submit" className="btn btn-primary" onClick={this.loginClick}>Login</button>
+              <button type="submit" className="btn btn-primary">Login</button>
               <a href="./register" className="btn btn-link text-decoration-none">Register</a>
             </div>
           </form>
